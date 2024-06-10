@@ -1,8 +1,17 @@
-import os 
 import pygame
 from scripts.game import Game
+from scripts.functions import load_image
 
 class App:
+    def __init__(self):
+        self.running = True
+        self.FPS = 60
+        self.scene = pygame.display.set_mode((480, 720))
+        self.clock = pygame.time.Clock() 
+        self.game = Game()
+        pygame.display.set_caption("Doodle Jump")
+        pygame.display.set_icon(load_image("assets", "icons", "icon.ico"))
+    
     def handle_events(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -16,16 +25,6 @@ class App:
         self.game.render_objects(self.scene)
         pygame.display.update()
 
-    def __init__(self):
-        pygame.display.set_caption("Doodle Jump")
-        image = pygame.image.load(os.path.join("assets", "icons", "icon.ico"))
-        pygame.display.set_icon(image)
-        self.running = True
-        self.FPS = 60
-        self.scene = pygame.display.set_mode((480, 720))
-        self.clock = pygame.time.Clock() 
-        self.game = Game()
-    
     
     def run(self):
         while self.running:
