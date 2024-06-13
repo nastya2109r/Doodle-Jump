@@ -9,4 +9,4 @@ class Sprite:
         scene.blit(self.image, self.rect)
     
     def collide(self, other_rect):
-        self.rect.colliderect(...)
+        return self.rect.colliderect(other_rect)
