@@ -1,12 +1,13 @@
 import pygame
 from scripts.game import Game
 from scripts.functions import load_image
+from scripts.constants import display_size
 
 class App:
     def __init__(self):
         self.running = True
         self.FPS = 60
-        self.scene = pygame.display.set_mode((480, 720))
+        self.scene = pygame.display.set_mode(display_size)
         self.clock = pygame.time.Clock() 
         self.game = Game()
         pygame.display.set_caption("Doodle Jump")
